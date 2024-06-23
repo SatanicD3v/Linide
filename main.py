@@ -27,6 +27,12 @@ class HelpMenu:
     def help():
         HelpScreen = """
                         <<Help>>
+            Basic MainMenu Commands
+            [clear] --> Clears the stdout screen
+            [exit] --> Exits the session
+            [menu] --> Shows the menu 
+            [help] --> Shows the help display
+            [linode-config] --> Enters configuration for linode settinsg
         """
         print(HelpScreen)
 
@@ -44,9 +50,9 @@ def main():
     global MenuPage
     MenuPage = """
     =====================================================
-                      <<OxyLinide>>
-                <<Framework for Linode>>                
-                       <<Ver 1.0>>            
+                       <<<Linide>>>
+                 <<Framework for Linode>>                
+                        <<Ver 1.0>>            
                [Please read the documentation
             prior to working with this framework]
     =====================================================
@@ -95,9 +101,25 @@ def main():
 # Function that is used to work with configurations within the linode
 def LinodeConfig():
     # Where the input is stored
-
-    LinodeConfigInput = input("<Config>:// ")
-    
+    while(True):
+        LinodeConfigInput = input("<Config>:// ")
+        
+        match LinodeConfigInput:
+            case "clear":
+                try:
+                    os.system('cls')
+                except:
+                    None
+            case "help":
+                try:
+                    HelpMenu.help()
+                except:
+                    None
+            case "back":
+                try:
+                    main()
+                except:
+                    None
     
 
 
