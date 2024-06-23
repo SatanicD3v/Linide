@@ -30,12 +30,18 @@ class HelpMenu:
         """
         print(HelpScreen)
 
+# Class used for Linode cloud account manipulation
+class LinodeAccount:
+
+    def GetAccount():
+        os.system('linodecli')
+
 
 def main():
     # Largely used variables are stored at top
     OperatingSystems = ["nt","posix"]
     ClearScreen = os.system('cls')
-
+    global MenuPage
     MenuPage = """
     =====================================================
                       <<OxyLinide>>
@@ -53,6 +59,7 @@ def main():
         match MainUserInput:
             case "exit":
                 try:
+                    MainUserInput = None
                     exit()
                 except ValueError:
                      None
@@ -71,6 +78,29 @@ def main():
                     print(MenuPage)
                 except:
                     None
+            case "linode-config":      
+                LinodeConfigThread = threading.Thread(target=LinodeConfig)
+                try:
+                    LinodeConfigThread.start()
+                    LinodeConfigThread.join()
+                except:
+                    if LinodeConfigThread == False:
+                        print("Warning!! There was a threading issue with the Linode Configuration Thread that caused an internal error!")
+                        time.sleep(1)
+                break
+    
+
+            
+                    
+# Function that is used to work with configurations within the linode
+def LinodeConfig():
+    # Where the input is stored
+
+    LinodeConfigInput = input("<Config>:// ")
+    
+    
+
+
 
     
 
@@ -88,7 +118,7 @@ if __name__ == '__main__':
             # If the thread returns a false value and fails
             if MainThread == False:
                 print("WARNING! There is an issue with a thread that caused an internal error.")
-                MainThread.start
+                
 
 
 
