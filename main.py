@@ -87,12 +87,9 @@ def main():
             case "linode-config":      
                 LinodeConfigThread = threading.Thread(target=LinodeConfig)
                 try:
-                    LinodeConfigThread.start()
-                    LinodeConfigThread.join()
+                    LinodeConfig()
                 except:
-                    if LinodeConfigThread == False:
-                        print("Warning!! There was a threading issue with the Linode Configuration Thread that caused an internal error!")
-                        time.sleep(1)
+                    None
                 break
     
 
@@ -120,6 +117,30 @@ def LinodeConfig():
                     main()
                 except:
                     None
+            case "menu":
+                try:
+                    print(MenuPage)
+                except:
+                    None
+            case "exit":
+                try:
+                    
+                    print("Are you sure you want to exit? Y/N")
+                    ExitInput = input(": ")
+                    match ExitInput:
+                        case "Y":
+                            os.system('cls')
+                            exit()
+                            
+                        case "y":
+                            os.system('cls')
+                            exit()
+                        case "N":
+                            continue
+                        case "n":
+                            continue
+                except:
+                    None                    
     
 
 
