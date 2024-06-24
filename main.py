@@ -54,8 +54,11 @@ class HelpMenu:
 # Class used for Linode cloud account manipulation
 class LinodeAccount:
 
-    def GetAccount():
-        os.system('linodecli')
+    def ViewAccount():
+        try:
+            os.system('linode-cli account view')
+        except:
+            None
 
 
 def main():
@@ -102,12 +105,17 @@ def main():
                 except:
                     None
             case "linode-config":      
-                LinodeConfigThread = threading.Thread(target=LinodeConfig)
                 try:
                     LinodeConfig()
                 except:
                     None
                 break
+            case "linode-account-management":
+                try:
+                    LinodeAccount.ViewAccount()
+                except:
+                    None
+
     
 
             
