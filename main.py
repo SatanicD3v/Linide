@@ -31,10 +31,25 @@ class HelpMenu:
             [clear] --> Clears the stdout screen
             [exit] --> Exits the session
             [menu] --> Shows the menu 
-            [help] --> Shows the help display
-            [linode-config] --> Enters configuration for linode settinsg
+            [help] --> Shows the help menu
         """
         print(HelpScreen)
+
+    def MainMenu():
+        MainMenuHelp = """
+                        <<Main Menu Help>>
+            Basic Commands:
+            [clear] --> Clears the stdout screen
+            [exit]  --> Exits the session
+            [menu]  --> Shows the menu
+            [help]  --> Shows the help menu
+
+            Menu Commands:
+            [linode-config]             --> Enters the configuration menu for configuration of your account
+            [linode-account-management] --> Enters the management menu for your Linode account
+            [linode-deploymet]          --> Enters the menu for linode deployment
+            [linode-networking]         --> Enters the menu for linode network configuration
+        """
 
 # Class used for Linode cloud account manipulation
 class LinodeAccount:
@@ -55,6 +70,8 @@ def main():
                         <<Ver 1.0>>            
                [Please read the documentation
             prior to working with this framework]
+                                      
+                             
     =====================================================
         
     """
@@ -131,7 +148,6 @@ def LinodeConfig():
                         case "Y":
                             os.system('cls')
                             exit()
-                            
                         case "y":
                             os.system('cls')
                             exit()
@@ -140,7 +156,13 @@ def LinodeConfig():
                         case "n":
                             continue
                 except:
-                    None                    
+                    None      
+
+            case "help-config":
+               try:
+                   HelpMenu.LinodeConfighelp()
+               except:
+                   None               
     
 
 
