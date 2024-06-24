@@ -63,7 +63,6 @@ class LinodeAccount:
 
 def main():
     # Largely used variables are stored at top
-    OperatingSystems = ["nt","posix"]
     ClearScreen = os.system('cls')
     global MenuPage
     MenuPage = """
@@ -110,12 +109,6 @@ def main():
                 except:
                     None
                 break
-            case "linode-account-management":
-                try:
-                    LinodeAccount.ViewAccount()
-                except:
-                    None
-
     
 
             
