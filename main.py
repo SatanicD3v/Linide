@@ -50,9 +50,30 @@ class HelpMenu:
             [linode-deploymet]          --> Enters the menu for linode deployment
             [linode-networking]         --> Enters the menu for linode network configuration
         """
+        
+# Used for Command help
+class LinodeCMDHelp:
+    
+    def LinodeConifgHelp():
+        None
+    
+    def LinodeAccountManagementHelp():
+        None
 
+    def LinodeDeploymentHelp():
+        None
+    
+    def LinodeNetworkingHelp():
+        None
+
+# Used for Making configuration settings
+class LinodeConfig:
+
+    def ConnectAccount():
+        None
+    
 # Class used for Linode cloud account manipulation
-class LinodeAccount:
+class LinodeAccountManagement:
 
     def ViewAccount():
         try:
@@ -60,6 +81,17 @@ class LinodeAccount:
         except:
             None
 
+# Class used for Linode deployments
+class LinodeDeployment:
+    
+    def MassDeploy():
+        None
+
+# Used for configuration and management of networking resources within Linode
+class LinodeNetworking:
+
+    def VPCConfig():
+        None
 
 def main():
     # Largely used variables are stored at top
@@ -93,6 +125,11 @@ def main():
                     HelpMenu.help()
                 except ValueError:
                     None
+            case "help menu":
+                try:
+                    HelpMenu.MainMenu()
+                except:
+                    None
             case "clear":
                 try:
                     os.system('cls')
@@ -103,13 +140,27 @@ def main():
                     print(MenuPage)
                 except:
                     None
-            case "linode-config":      
+            case "config":      
                 try:
                     LinodeConfig()
                 except:
                     None
                 break
-    
+            case "account":
+                try:
+                    LinodeAccountManagement()
+                except:
+                    None
+            case "deployment":
+                try:
+                    LinodeDeployment()
+                except:
+                    None
+            case "networking":
+                try:
+                    LinodeNetworking()
+                except:
+                    None
 
             
                     
@@ -165,7 +216,140 @@ def LinodeConfig():
                except:
                    None               
     
+def LinodeAccountManagement():
+     # Where the input is stored
+    while(True):
+        LinodeAccountManagementInput = input("<Account Management>:// ")
+        
+        match LinodeAccountManagementInput:
+            case "clear":
+                try:
+                    os.system('cls')
+                except:
+                    None
+            case "help":
+                try:
+                    HelpMenu.help()
+                except:
+                    None
+            case "back":
+                try:
+                    main()
+                except:
+                    None
+            case "menu":
+                try:
+                    print(MenuPage)
+                except:
+                    None
+            case "exit":
+                try:
+                    
+                    print("Are you sure you want to exit? Y/N")
+                    ExitInput = input(": ")
+                    match ExitInput:
+                        case "Y":
+                            os.system('cls')
+                            exit()
+                        case "y":
+                            os.system('cls')
+                            exit()
+                        case "N":
+                            continue
+                        case "n":
+                            continue
+                except:
+                    None     
 
+def LinodeDeployment():
+     # Where the input is stored
+    while(True):
+        LinodeDeploymentInput = input("<Deployment>:// ")
+        
+        match LinodeDeploymentInput:
+            case "clear":
+                try:
+                    os.system('cls')
+                except:
+                    None
+            case "help":
+                try:
+                    HelpMenu.help()
+                except:
+                    None
+            case "back":
+                try:
+                    main()
+                except:
+                    None
+            case "menu":
+                try:
+                    print(MenuPage)
+                except:
+                    None
+            case "exit":
+                try:
+                    
+                    print("Are you sure you want to exit? Y/N")
+                    ExitInput = input(": ")
+                    match ExitInput:
+                        case "Y":
+                            os.system('cls')
+                            exit()
+                        case "y":
+                            os.system('cls')
+                            exit()
+                        case "N":
+                            continue
+                        case "n":
+                            continue
+                except:
+                    None     
+
+def LinodeNetworking():
+     # Where the input is stored
+    while(True):
+        LinodeNetworkingInput = input("<Networking>:// ")
+        
+        match LinodeNetworkingInput:
+            case "clear":
+                try:
+                    os.system('cls')
+                except:
+                    None
+            case "help":
+                try:
+                    HelpMenu.help()
+                except:
+                    None
+            case "back":
+                try:
+                    main()
+                except:
+                    None
+            case "menu":
+                try:
+                    print(MenuPage)
+                except:
+                    None
+            case "exit":
+                try:
+                    
+                    print("Are you sure you want to exit? Y/N")
+                    ExitInput = input(": ")
+                    match ExitInput:
+                        case "Y":
+                            os.system('cls')
+                            exit()
+                        case "y":
+                            os.system('cls')
+                            exit()
+                        case "N":
+                            continue
+                        case "n":
+                            continue
+                except:
+                    None     
 
 
     
@@ -187,7 +371,7 @@ if __name__ == '__main__':
                 
 
 
-
+    # If there is an error within the main function or exits unexpectly
     except:
         print("Exiting...")
         exit()
