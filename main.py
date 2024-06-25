@@ -50,7 +50,8 @@ class HelpMenu:
             [linode-deploymet]          --> Enters the menu for linode deployment
             [linode-networking]         --> Enters the menu for linode network configuration
         """
-        
+        print(MainMenuHelp)
+
 # Used for Command help
 class LinodeCMDHelp:
     
@@ -116,10 +117,22 @@ def main():
         match MainUserInput:
             case "exit":
                 try:
-                    MainUserInput = None
-                    exit()
-                except ValueError:
-                     None
+                    
+                    print("Are you sure you want to exit? Y/N")
+                    ExitInput = input(": ")
+                    match ExitInput:
+                        case "Y":
+                            os.system('cls')
+                            exit()
+                        case "y":
+                            os.system('cls')
+                            exit()
+                        case "N":
+                            continue
+                        case "n":
+                            continue
+                except:
+                    None      
             case "help":
                 try:
                     HelpMenu.help()
@@ -181,14 +194,9 @@ def LinodeConfig():
                     HelpMenu.help()
                 except:
                     None
-            case "back":
-                try:
-                    main()
-                except:
-                    None
             case "menu":
                 try:
-                    print(MenuPage)
+                    main()
                 except:
                     None
             case "exit":
@@ -209,12 +217,21 @@ def LinodeConfig():
                             continue
                 except:
                     None      
-
-            case "help-config":
-               try:
-                   HelpMenu.LinodeConfighelp()
-               except:
-                   None               
+            case "account":
+                try:
+                    LinodeAccountManagement()
+                except:
+                    None
+            case "deployment":
+                try:
+                    LinodeDeployment()
+                except:
+                    None
+            case "networking":
+                try:
+                    LinodeNetworking()
+                except:
+                    None
     
 def LinodeAccountManagement():
      # Where the input is stored
@@ -232,14 +249,9 @@ def LinodeAccountManagement():
                     HelpMenu.help()
                 except:
                     None
-            case "back":
-                try:
-                    main()
-                except:
-                    None
             case "menu":
                 try:
-                    print(MenuPage)
+                    main()
                 except:
                     None
             case "exit":
@@ -260,7 +272,22 @@ def LinodeAccountManagement():
                             continue
                 except:
                     None     
-
+            case "config":      
+                try:
+                    LinodeConfig()
+                except:
+                    None
+                break
+            case "deployment":
+                try:
+                    LinodeDeployment()
+                except:
+                    None
+            case "networking":
+                try:
+                    LinodeNetworking()
+                except:
+                    None
 def LinodeDeployment():
      # Where the input is stored
     while(True):
@@ -277,14 +304,9 @@ def LinodeDeployment():
                     HelpMenu.help()
                 except:
                     None
-            case "back":
-                try:
-                    main()
-                except:
-                    None
             case "menu":
                 try:
-                    print(MenuPage)
+                    main()
                 except:
                     None
             case "exit":
@@ -305,6 +327,22 @@ def LinodeDeployment():
                             continue
                 except:
                     None     
+            case "config":      
+                try:
+                    LinodeConfig()
+                except:
+                    None
+                break
+            case "account":
+                try:
+                    LinodeAccountManagement()
+                except:
+                    None
+            case "networking":
+                try:
+                    LinodeNetworking()
+                except:
+                    None
 
 def LinodeNetworking():
      # Where the input is stored
@@ -322,14 +360,9 @@ def LinodeNetworking():
                     HelpMenu.help()
                 except:
                     None
-            case "back":
-                try:
-                    main()
-                except:
-                    None
             case "menu":
                 try:
-                    print(MenuPage)
+                    main()
                 except:
                     None
             case "exit":
@@ -349,7 +382,23 @@ def LinodeNetworking():
                         case "n":
                             continue
                 except:
-                    None     
+                    None
+            case "config":      
+                try:
+                    LinodeConfig()
+                except:
+                    None
+                break
+            case "account":
+                try:
+                    LinodeAccountManagement()
+                except:
+                    None
+            case "deployment":
+                try:
+                    LinodeDeployment()
+                except:
+                    None
 
 
     
